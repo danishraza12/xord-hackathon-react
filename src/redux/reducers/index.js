@@ -1,7 +1,13 @@
 import { combineReducers } from 'redux';
+import { Lesie, Robert, Jane, Jenny, Ronald } from '../../static';
 
 const chartReducer = () => {
   return [
+    {
+      x_name: '',
+      'Patients 2019': 0,
+      'Patients 2020': 0,
+    },
     {
       x_name: '2021-1',
       'Patients 2019': 130,
@@ -86,7 +92,147 @@ const cardsReducer = () => {
   ];
 };
 
+const incomeReducer = () => {
+  return [
+    [
+      {
+        x_name: '',
+        income: '',
+      },
+      {
+        x_name: '1 July',
+        income: 20000,
+      },
+      {
+        x_name: '8 July',
+        income: 50000,
+      },
+      {
+        x_name: '16 July',
+        income: 40000,
+      },
+      {
+        x_name: '24 July',
+        income: 90000,
+      },
+      {
+        x_name: '31 July',
+        income: 65000,
+      },
+    ],
+    [
+      {
+        x_name: '',
+        income: '',
+      },
+      {
+        x_name: '25 July',
+        income: 90000,
+      },
+      {
+        x_name: '26 July',
+        income: 50000,
+      },
+      {
+        x_name: '27 July',
+        income: 65000,
+      },
+      {
+        x_name: '28 July',
+        income: 85000,
+      },
+      {
+        x_name: '29 July',
+        income: 65000,
+      },
+      {
+        x_name: '30 July',
+        income: 75000,
+      },
+      {
+        x_name: '31 July',
+        income: 35000,
+      },
+    ],
+  ];
+};
+
+const incomeCardsReducer = () => {
+  return [
+    {
+      title: '$100,000',
+      legend: 'Income in current month',
+      stroke: 'blue',
+      dataKey: 'x_name',
+    },
+    {
+      title: '$25,000',
+      legend: 'Income in current week',
+      stroke: 'yellow',
+      dataKey: 'x_name',
+    },
+  ];
+};
+
+const appointmentRowsReducer = () => {
+  return [
+    {
+      id: 1,
+      name: 'Lesie Alexander',
+      avatar: Lesie,
+      email: 'lesie.alexander@example.com',
+      date: '10/10/2020',
+      visitTime: '09:15-09:45',
+      doctor: 'Dr. Jacob Jones',
+      conditions: 'Mumps Stage ll',
+    },
+    {
+      id: 2,
+      name: 'Ronald Richards',
+      avatar: Ronald,
+      email: 'ronald.richards@example.com',
+      date: '10/12/2020',
+      visitTime: '12:00-12:45',
+      doctor: 'Dr. Theresa Webb',
+      conditions: 'Depression',
+    },
+    {
+      id: 3,
+      name: 'Jane Cooper',
+      avatar: Jane,
+      email: 'jane.cooper@example.com',
+      date: '10/13/2020',
+      visitTime: '02:15-02:45',
+      doctor: 'Dr. Jacob Jones',
+      conditions: 'Arthritis',
+    },
+    {
+      id: 4,
+      name: 'Robert Fox',
+      avatar: Robert,
+      email: 'robert.fox@example.com',
+      date: '10/14/2020',
+      visitTime: '01:15-01:45',
+      doctor: 'Dr. Arlene MacCoy',
+      conditions: 'Fracture',
+    },
+    {
+      id: 5,
+      name: 'Jenny Wilson',
+      avatar: Jenny,
+      email: 'jenny.wilson@example.com',
+      date: '10/15/2020',
+      visitTime: '12:15-12:45',
+      doctor: 'Dr. Esther Howard',
+      conditions: 'Depression',
+    },
+  ];
+};
+
 export default combineReducers({
   data: chartReducer,
   cardsInfo: cardsReducer,
+  incomeCard: incomeReducer,
+  incomeData: incomeCardsReducer,
+  appointmentRows: appointmentRowsReducer,
 });

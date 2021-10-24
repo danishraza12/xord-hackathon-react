@@ -1,14 +1,11 @@
-import { Navbar, Header, Cards, Chart } from './components';
+import { Dashboard } from './components';
 
-function App() {
+const App = () => {
   return (
     <div className="appContainer">
-      <Header />
-      <Navbar />
-      <Cards />
-      <Chart />
+      <Dashboard />
     </div>
   );
-}
+};
 
 export default App;
