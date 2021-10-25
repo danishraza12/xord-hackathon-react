@@ -1,11 +1,11 @@
-import './appointmentActivity.css';
+import './appointmentPageList.css';
 import { connect } from 'react-redux';
 import { useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { DeleteOutline } from '@material-ui/icons';
 import Pagination from '@mui/material/Pagination';
 
-const AppointmentActivity = ({ appointmentRows, search }) => {
+const AppointmentPageList = ({ appointmentPage, search }) => {
   const columns = [
     { field: 'id', headerName: 'ID', width: 70 },
     {
@@ -28,7 +28,7 @@ const AppointmentActivity = ({ appointmentRows, search }) => {
     { field: 'conditions', headerName: 'Conditions', width: 160 },
     {
       field: 'action',
-      headerName: 'Action',
+      headerName: '',
       width: 150,
       renderCell: (params) => {
         return (
@@ -41,7 +41,7 @@ const AppointmentActivity = ({ appointmentRows, search }) => {
     },
   ];
 
-  const rows = appointmentRows;
+  const rows = appointmentPage;
   const [page, setPage] = useState(0);
 
   return (
@@ -52,19 +52,19 @@ const AppointmentActivity = ({ appointmentRows, search }) => {
         </div>
       </div>
       <div className="appointment">
-        <div className="appointmentGridItem">
+        <div className="appointmentItem">
           <DataGrid
             page={page}
             rows={search(rows)}
             columns={columns}
             onPageChange={(newPage) => setPage(newPage)}
-            pageSize={5}
+            pageSize={10}
             pagination
           />
         </div>
       </div>
       <div className="appointment">
-        <div className="appointmentTitleItem">
+        <div className="paginationItem">
           <Pagination count={3} variant="outlined" shape="rounded" />
         </div>
       </div>
@@ -74,8 +74,8 @@ const AppointmentActivity = ({ appointmentRows, search }) => {
 
 const mapStateToProps = (state) => {
   return {
-    appointmentRows: state.appointmentRows,
+    appointmentPage: state.appointmentPage,
   };
 };
 
-export default connect(mapStateToProps, {})(AppointmentActivity);
+export default connect(mapStateToProps, {})(AppointmentPageList);

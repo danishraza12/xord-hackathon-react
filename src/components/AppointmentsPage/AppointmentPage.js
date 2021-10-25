@@ -1,14 +1,7 @@
 import React, { useState } from 'react';
-import {
-  Navbar,
-  Header,
-  Cards,
-  Chart,
-  Income,
-  AppointmentActivity,
-} from '../../components';
+import { Navbar, Header, AppointmentPageList } from '../../components';
 
-const Dashboard = () => {
+const AppointmentPage = () => {
   const [term, setTerm] = useState('');
 
   // Allow searching within the grid
@@ -28,12 +21,9 @@ const Dashboard = () => {
     <>
       <Header term={term} setTerm={setTerm} />
       <Navbar />
-      <Cards />
-      <Chart />
-      <Income />
-      <AppointmentActivity search={search} />
+      <AppointmentPageList search={search} />
     </>
   );
 };
 
-export default Dashboard;
+export default AppointmentPage;
