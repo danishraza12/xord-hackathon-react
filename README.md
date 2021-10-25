@@ -1,6 +1,9 @@
 # About
 
-This repository consists of Xord's Health Dashboard Hackathon project
+This repository consists of Xord's Health Dashboard Hackathon project.
+
+## Link to live project
+https://xord-hackathon.netlify.app/
 
 ## Available Scripts
 
